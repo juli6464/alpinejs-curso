@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <title>loop</title>
+</head>
+<body>
+    <main class="tabs" x-data="{ 
+        tab: 'news',
+        list: {
+          1: { name: 'home',  title: 'Home' },
+          2: { name: 'team',  title: 'Team' },
+          3: { name: 'news',  title: 'News' },
+          4: { name: 'about', title: 'About' }
+        }
+      }">
+      <div class="tab-headers" >
+      <template x-for="item in Object.values(list)" :key="item">
+        <div
+           x-on:click="tab = item.name"
+           x-bind:class="{ 
+             'active bg-blue-500'   : item.name == 'home'  && tab =='home',
+             'active bg-teal-500'   : item.name == 'team'  && tab =='team', 
+             'active bg-red-500'    : item.name == 'news'  && tab =='news', 
+             'active bg-orange-500' : item.name == 'about' && tab =='about', 
+             'bg-white-700' : true
+           }"
+           x-text="item.title" class="mb-2"></div>
+      </template>
+      </div>
+  
+     Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti iusto non, molestiae dolorum, architecto numquam iure fuga natus excepturi porro ducimus saepe commodi sint suscipit voluptatibus! Odio odit totam quam.
+     Vel provident, odio perferendis numquam et sint ipsum. Ducimus iusto facere maiores, voluptatem perferendis non repudiandae fugiat asperiores. Ratione natus nostrum quas, quam reprehenderit fuga impedit nesciunt ipsa dignissimos molestiae.
+     Voluptate nulla quo veritatis aut quibusdam. Deleniti laborum et ipsam, mollitia iure beatae culpa voluptatibus, labore numquam delectus officia ut officiis, voluptatem fugiat odio qui reprehenderit sunt consequuntur reiciendis quos.
+     Enim officia corrupti, repudiandae incidunt iusto amet molestiae eaque quas nostrum! Assumenda tempora, quam nam voluptate quos, ducimus repudiandae, quae debitis laboriosam maxime eligendi in suscipit! Sed neque cum corporis.
+     Corporis ad dolorum modi asperiores eum laudantium quasi ab rem quis unde necessitatibus, reiciendis architecto hic minima sunt id temporibus maxime. Eveniet accusamus alias nobis maiores excepturi quis ipsa exercitationem.
+     Laudantium eaque dolorem optio exercitationem commodi modi perspiciatis nostrum facere nihil, rem, aliquam molestiae unde cumque. Rerum fugiat dolor debitis nisi placeat, magnam maxime quis ab sapiente? Quasi, explicabo commodi?
+    </main>
+</body>
+</html>

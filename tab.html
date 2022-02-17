@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div x-data="{ tab: '#tab1' }" x-init="$refs[tab].focus()">
+
+        <!-- Links here -->
+        <div class="flex flex-row justify-start space-x-4 text-white bg-red-300">
+            <div>
+                <div>
+                    <a x-ref="#tab1" class="px-4 border-b-2 border-gray-900 outline-none hover:border-blue-400 focus:border-blue-500 active:border-red-500 visited:border-red-500"
+                    href="#" x-on:click.prevent="tab = '#tab1'">Tab1</a>
+    
+                    <a x-ref="#tab2" class="px-4 border-b-2 border-gray-900 outline-none hover:border-blue-400 focus:border-blue-500 active:border-red-500 visited:border-red-500"
+                    href="#" x-on:click.prevent="tab = '#tab2'">Tab2</a>
+    
+                    <a x-ref="#tab3" class="px-4 border-b-2 border-gray-900 outline-none hover:border-blue-400 focus:border-blue-500 active:border-red-500 visited:border-red-500"
+                    href="#" x-on:click.prevent="tab = '#tab3'">Tab3</a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Tab Content here -->
+        <div class="flex flex-row justify-start mx-4 space-x-4">
+            <div>
+                <div x-show="tab == '#tab1'" x-cloak>
+                <p>Tab 1</p>
+            </div>
+    
+            <div x-show="tab == '#tab2'" x-cloak>
+                <p>Tab 2</p>
+            </div>
+    
+            <div x-show="tab == '#tab3'" x-cloak>
+                <p>Tab 3</p>
+            </div>
+        </div>
+    
+    </div>
+
+  <!-- Alpine.js -->
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</body>
+
+</html>

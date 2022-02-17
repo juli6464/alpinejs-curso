@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <title>Imgages Alpine js</title>
+</head>
+<style>
+   img, span {
+    cursor: pointer;
+   } 
+</style>
+<body>
+    <div x-data="{ total: 3, current: 0, open: false }">
+        <div>
+          <img width="100" @click="current = 0, open = true" src="https://images.unsplash.com/photo-1583262428949-7d9f74ca3657?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+          <img width="100" @click="current = 1, open = true" src="https://images.unsplash.com/photo-1583659811570-c77f4819c3f9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+          <img width="100" @click="current = 2, open = true" src="https://images.unsplash.com/photo-1584306124080-3f88451d23d1?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+        </div>
+        <div x-show="open" @click.away="open = false">
+            <span @click="if(current >= 1){ current = current - 1}" class="text-white bg-blue-500">prev</span>
+            <span @click="if(current < total-1){ current = current + 1}" class="text-white bg-blue-500">next</span>
+            <span @click="open = false" class="text-white bg-red-500">Close</span>
+            <div>
+            <img x-show="current == 0" src="https://images.unsplash.com/photo-1583262428949-7d9f74ca3657?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+            <img x-show="current == 1" src="https://images.unsplash.com/photo-1583659811570-c77f4819c3f9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+            <img x-show="current == 2" src="https://images.unsplash.com/photo-1584306124080-3f88451d23d1?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+          </div>
+        </div>
+    </div>
+
+</body>
+</html>
